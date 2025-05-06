@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg1yaqruwjoh5"]
+
+[ext_resource type="PackedScene" uid="uid://dj660f75s032f" path="res://gameObjects/Knight.tscn" id="1_eyawo"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_l41tw"]
+radius = 1.0
+
+[node name="Character" type="CharacterBody3D"]
+
+[node name="Knight" parent="." instance=ExtResource("1_eyawo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1, 0)
+shape = SubResource("CylinderShape3D_l41tw")
+debug_color = Color(0.96616, 0, 0.482253, 0.42)
