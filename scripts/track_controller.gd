@@ -1,24 +1,36 @@
 extends Node
 class_name TrackController
 
-@export var track_velocity = 10
+var TileObject = preload("res://gameObjects/Tile.tscn")
+
 @export var track_end = -48
 @export var track_start = 31.5
 
-var Tiles: Array[Node3D] = []
+var tiles: Array[Node3D] = []
 
 func _ready() -> void:
-	_load_tiles()
+	_load_starting_tiles()
 
 func _physics_process(delta: float) -> void:
-	_move_track(delta)
+	_update_track(delta)
 
-func _move_track(delta: float) -> void:
-	for tile in Tiles:
+func _update_track(delta: float) -> void:
+	for tile in tiles:
 		if(tile.position.x < track_end):
-			tile.position.x = track_start
-		tile.position.x -= track_velocity * delta
+			# delete tiles when they reach the end of track
+			tile._delete()
+			tiles.erase(tile)
+			# spawn in new tiles at the front
+			var new_tile = TileObject.instantiate()
+			new_tile.position.x = track_start
+			tiles.append(new_tile)
+			add_child(new_tile)
+		else:
+			tile.position.x -= Globals.track_velocity * delta
 	
-func _load_tiles() -> void:
-	for children in self.get_children():
-		Tiles.append(children)
+	
+	
+func _load_starting_tiles() -> void:
+	for child in self.get_children():
+		if child is Tile:
+			tiles.append(child)

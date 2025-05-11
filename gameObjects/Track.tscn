@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cx2cykg2flcye"]
 
 [ext_resource type="Script" uid="uid://bxurbo0vm0suc" path="res://scripts/track_controller.gd" id="1_gcg41"]
-[ext_resource type="PackedScene" uid="uid://w7vrg2xefcy6" path="res://gameObjects/Tile1.tscn" id="1_oegga"]
+[ext_resource type="PackedScene" uid="uid://w7vrg2xefcy6" path="res://gameObjects/Tile.tscn" id="1_oegga"]
 
 [node name="Track" type="Node3D"]
 script = ExtResource("1_gcg41")

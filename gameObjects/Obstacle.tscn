@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7aa2qa40c3h3"]
+
+[ext_resource type="Script" uid="uid://wjavjqj5lvnx" path="res://scripts/obstacle.gd" id="1_d6pf0"]
+[ext_resource type="PackedScene" uid="uid://b6hj33hsl1jel" path="res://terrain/keg.gltf" id="2_s2alh"]
+[ext_resource type="PackedScene" uid="uid://ddthaher3yoml" path="res://terrain/box_stacked.gltf" id="3_3nk6x"]
+[ext_resource type="PackedScene" uid="uid://bry71ug2xqyjl" path="res://terrain/table_long_broken.gltf" id="4_aodac"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tt8f8"]
+height = 1.0
+radius = 1.0
+
+[node name="Obstacle" type="Area3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+script = ExtResource("1_d6pf0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_tt8f8")
+
+[node name="keg2" parent="." instance=ExtResource("2_s2alh")]
+visible = false
+
+[node name="box_stacked2" parent="." instance=ExtResource("3_3nk6x")]
+transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, 0, 0, 0)
+visible = false
+
+[node name="table_long_broken2" parent="." instance=ExtResource("4_aodac")]
+transform = Transform3D(-0.00497412, 0, 0.569978, 0, 0.57, 0, -0.569978, 0, -0.00497412, 0, 0, 0)
+visible = false

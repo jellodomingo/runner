@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://djlunkfd0epjt"]
+
+[ext_resource type="Script" uid="uid://d2ccf8cs2b60p" path="res://scripts/game_ui_controller.gd" id="1_pv0xb"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pv0xb")
+
+[node name="MainUI" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="ScoreContainer" type="MarginContainer" parent="MainUI"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 120
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainUI/ScoreContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="ScoreTextLabel" type="Label" parent="MainUI/ScoreContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Score: "
+max_lines_visible = 1
+
+[node name="ScoreLabel" type="Label" parent="MainUI/ScoreContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "999999999999"
+max_lines_visible = 1
+visible_characters = 10
